@@ -6,6 +6,11 @@
  * * the Threejs docs:
  * * https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene
  *
+ * * For really simple threejs applications taking a procedural approach like this
+ * * is fine (and if writing js like this in more complex examples is your style
+ * * then by all means do it), but as the application becomes more complex it's a
+ * * good idea to start breaking parts out into classes and composing it all
+ * * together.
  * ? ==============================================================================
  */
 
@@ -47,7 +52,13 @@ document.body.appendChild(
  * ? https://threejs.org/docs/index.html#api/en/scenes/Scene
  * ? ===========================================
  */
-let scene = new THREE.Scene()
+let scene =
+    window.scene = // ! if you want to use the threejs dev tool you'll need to attach the scene to the window
+    new THREE.Scene()
+
+// * If you're going to use the three inspector it's a good idea to give the parts of the experience
+// * names. They're not required, but it makes it considerably easier to identify entities in the dev tools.
+scene.name = "demo-scene"
 
 
 /**
@@ -105,7 +116,9 @@ let camera = new THREE.PerspectiveCamera(
 // * Create our 3D Object
 let geometry = new THREE.BoxGeometry(1, 1, 1)
 let material = new THREE.MeshNormalMaterial()
-let cube = window.cube = new THREE.Mesh(geometry, material)
+let cube = new THREE.Mesh(geometry, material)
+
+cube.name = 'Box mesh' // * again, giving it a name isn't necessary, but it helps in the dev tools
 
 // * Add that object to the scene
 scene.add(cube)
@@ -123,17 +136,18 @@ camera.position.z = 5
  * * If you uncomment the anmiation loop below you can see the
  * * scene work without controls.
  **/
-// function animate() {
-//     requestAnimationFrame(animate) // * javascript's requestAnimationFrame
+/*
+function animate() {
+    requestAnimationFrame(animate) // * javascript's requestAnimationFrame
 
-//     // * make our cube move!
-//     cube.rotation.x += 0.01
-//     cube.rotation.y += 0.01
+    // * make our cube move!
+    cube.rotation.x += 0.01
+    cube.rotation.y += 0.01
 
-//     renderer.render(scene, camera)
-// }
-// animate()
-
+    renderer.render(scene, camera)
+}
+animate()
+*/
 
 /**
  * ? ===========================================
