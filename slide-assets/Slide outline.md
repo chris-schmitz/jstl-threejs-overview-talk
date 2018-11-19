@@ -25,6 +25,7 @@ It allows you to access your computer's graphics hardware from your browser.
 ## Parts of a three.js experience
 
 ### The canvas
+- 
 
 ### Scene
 
@@ -46,8 +47,12 @@ It allows you to access your computer's graphics hardware from your browser.
 - [Request Animation frame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame): a hook into the browser's repaint cycle
 	- Note that request animation frame will pause itself when the user goes to another tab or window
 
+## Dev tools
+
 ## Helpers
 - 
+
+
 
 ## A weird note about tooling
 - Some of the tooling 	
