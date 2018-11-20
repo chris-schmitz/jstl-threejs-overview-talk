@@ -4,6 +4,11 @@
 
 # For each slide section, show an animation of one of the dancers as the slide background
 
+# Intro slide
+
+- Who I am
+- Specifically not a designer
+
 ## What is it
 
 Three.js aims to be a lightweight easy to use 3D library for web development.
