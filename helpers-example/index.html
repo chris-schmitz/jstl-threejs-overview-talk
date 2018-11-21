@@ -13,13 +13,31 @@
             width: 100%;
             height: 100%
         }
+
+        .button-wrapper {
+            position: absolute;
+            padding: 10px;
+        }
+
+        .button-wrapper button {
+            font-size: 10pt;
+        }
+
+        .active-button {
+            background: green;
+            color: white;
+        }
     </style>
 </head>
 
 <body>
+    <div class="button-wrapper">
+        <button id="camera-button-one" class="active-button">Camera One</button>
+        <button id="camera-button-two">Camera Two</button>
+    </div>
     <script src="js/three.min.js"></script>
     <script src="js/OrbitControls.js"></script>
-    <script src="js/hello-with-helpers.js"></script>
+    <script src="js/hello-with-helpers.js" type="module"></script>
 </body>
 
 </html>
