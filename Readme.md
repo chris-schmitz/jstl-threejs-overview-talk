@@ -6,7 +6,7 @@ I'm giving a talk on [threejs](https://threejs.org) at November's [jSTL](https:/
 
 ## Demos
 
-![demo](readme-attachments/helper demo.gif)
+![demo](readme-attachments/helper-demo.gif)
 
 There are two _heavily_ annotated demos in this repository:
 
