@@ -51,11 +51,17 @@ document.body.appendChild(renderer.domElement)
  * * comment.
  * ? ==================================================================================
  */
-const scene = new THREE.Scene()
+const scene =
+    window.scene =
+    new THREE.Scene()
+
+scene.name = "hello-with-helpers"
 
 let geometry = new THREE.BoxGeometry(10, 10, 10)
 let material = new THREE.MeshNormalMaterial()
 let box = new THREE.Mesh(geometry, material)
+
+box.name = "another-box"
 
 scene.add(box)
 
@@ -124,29 +130,68 @@ CameraControls.begin(controls, cameraOne, cameraTwo)
  */
 
 let cameraOneHelper = new THREE.CameraHelper(cameraOne)
+cameraOneHelper.name = 'camera-one-helper'
 scene.add(cameraOneHelper)
 
 let gridHelper = new THREE.GridHelper(50, 10)
+gridHelper.name = 'grid-helper'
 scene.add(gridHelper)
 
 let axesHelper = new THREE.AxesHelper(30)
+axesHelper.name = 'axes-helper'
 scene.add(axesHelper)
+
+/**
+ * ? ==================================================================================
+ * ? The animation loop
+ *
+ * * The basics of the animation loop are the same here as they are in the hello.js
+ * * example; pass our animation handler to the request animation frame function, do
+ * * whatever tasks you need for this particular animation frame, tell the renderer to
+ * * draw this frame of the scene.
+ *
+ * * The difference here is that we want to draw the frame in two parts. To do this,
+ * * we're going to:
+ * * - perform some tasks (i.e. hide the helpers)
+ * * - set the size of the renderer's viewport to draw over half of the window
+ * * - render the scene using the first camera to view it
+ * * then:
+ * * - perform additional tasks (i.e. show the helpers)
+ * * - set the the renderer's viewport size to draw over the other half of the window
+ * * - render the scene using the second camera to view it
+ *
+ * ? ==================================================================================
+ */
+
 
 function animate() {
     requestAnimationFrame(animate)
-    box.rotation.x += 0.01
-    box.rotation.y += 0.01
 
     renderer.clear()
 
+    // * prep the items in your scene so they're ready to be drawn
+    box.rotation.x += 0.01
+    box.rotation.y += 0.01
     cameraOneHelper.visible = false
-    gridHelper.visible = false
+    // gridHelper.visible = false
+    // axesHelper.visible = false
 
-    renderer.setViewport(0, 0, SCREEN_WIDTH / 2, SCREEN_HEIGHT)
-    renderer.render(scene, cameraOne)
+    // * set the dimensions of the viewport to only draw across the first half of the screen
+    renderer.setViewport(
+        0, // * start at the far left of the window
+        0, // * and start at the top of the window
+        SCREEN_WIDTH / 2, // * draw for half of the total screen width
+        SCREEN_HEIGHT // * draw for the full screen height
+    )
 
+    renderer.render(scene, cameraOne) // * draw everything in the scene with their current settings using camera one
+
+    // * make some more changes to things in the scene
     cameraOneHelper.visible = true
     gridHelper.visible = true
+    // axesHelper.visible = true
+
+    // * set the dimensions of the viewport to only draw across the second half of the screen
     renderer.setViewport(
         SCREEN_WIDTH / 2, // * Start half way across the screen horizontally
         0, // * start at the top of the screen
@@ -154,7 +199,11 @@ function animate() {
         SCREEN_HEIGHT // * your draw height is the entire screen height
     )
 
+    // * notice how using the second camera is what makes such a big difference between
+    // * the first and second half of the scene. Try switching the commented and uncommented
+    // * lines below to see how switching cameras affects the scene.
     renderer.render(scene, cameraTwo)
+    // renderer.render(scene, cameraOne)
 }
 
 animate()
