@@ -10,8 +10,8 @@ I'm giving a talk on [threejs](https://threejs.org) at November's [jSTL](https:/
 
 There are two _heavily_ annotated demos in this repository:
 
-- [hello demo]()
-- [hello with helpers]()
+- [hello demo](https://github.com/chris-schmitz/jstl-threejs-overview-talk/tree/master/basic-example)
+- [hello with helpers](https://github.com/chris-schmitz/jstl-threejs-overview-talk/tree/master/helpers-example)
 
 In an effort to keep it simple both of these demos are writen in an imparitive and procedural style. With more complex projects you'll want to consider a more modularized and/or object oriented approach. I also didn't worry about handling fallback logic for browser support either for threejs or for es6 code.
 
