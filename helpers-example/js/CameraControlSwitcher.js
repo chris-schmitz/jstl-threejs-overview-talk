@@ -1,3 +1,9 @@
+// * Most of this class is just adding handlers to the two buttons that we're adding
+// * to the window to allow the user to determine which camera to attach the orbit
+// * controls to.
+// * The important threejs related part is the `attachControlsToCamera` method where
+// * we actually move the camera.
+
 class CameraControls {
     constructor(controls, cameraOne, cameraTwo) {
         this.controls = controls
@@ -27,11 +33,13 @@ class CameraControls {
             this.cameraButtonOne.classList.add('active-button')
             this.cameraButtonTwo.classList.remove('active-button')
 
+            // * this is how we're moving the controls from camera to camera
             this.controls.object = this.cameras.one
         } else if (cameraName === 'cameraTwo') {
             this.cameraButtonOne.classList.remove('active-button')
             this.cameraButtonTwo.classList.add('active-button')
 
+            // * this is how we're moving the controls from camera to camera
             this.controls.object = this.cameras.two
         } else {
             throw Error("A correct camera name wasn't provided")
