@@ -10,7 +10,7 @@ import CameraControls from "./CameraControlSwitcher.js"
  * * We're going to do some crazy screen splitting with the renderer so we'll
  * * grab the dimensions and calculate the aspect ratio up top.
  *
- * * Note that in both this and the hello-js example I'm not adjusting the renderer
+ * * Note that in both this and the basic-js example I'm not adjusting the renderer
  * * when the window is resized. I left that out to keep the demo files simple and
  * * because it's covered in all of the threejs website's examples, but it is important
  * * to include in your threejs projects.
@@ -47,7 +47,7 @@ document.body.appendChild(renderer.domElement)
  * ? ==================================================================================
  * ? Create the scene and 3D object
  *
- * * This is the same conceptually as the hello demo so I'm not going to belaber the
+ * * This is the same conceptually as the basic demo so I'm not going to belaber the
  * * comment.
  * ? ==================================================================================
  */
@@ -55,7 +55,7 @@ const scene =
     window.scene =
     new THREE.Scene()
 
-scene.name = "hello-with-helpers"
+scene.name = "helpers-demo"
 
 let geometry = new THREE.BoxGeometry(10, 10, 10)
 let material = new THREE.MeshNormalMaterial()
@@ -106,7 +106,7 @@ cameraTwo.lookAt(scene.position)
  * ? ==================================================================================
  * ? Setting up our camera controls
  *
- * * This is also pretty similar to what we were doing in the hello.js. The difference
+ * * This is also pretty similar to what we were doing in the basic.js. The difference
  * * in this demo is that we're abstratcting some camera juggling to an external module
  * * because the juggling isn't really important to this demo.
  * ? ==================================================================================
@@ -145,7 +145,7 @@ scene.add(axesHelper)
  * ? ==================================================================================
  * ? The animation loop
  *
- * * The basics of the animation loop are the same here as they are in the hello.js
+ * * The basics of the animation loop are the same here as they are in the basic.js
  * * example; pass our animation handler to the request animation frame function, do
  * * whatever tasks you need for this particular animation frame, tell the renderer to
  * * draw this frame of the scene.

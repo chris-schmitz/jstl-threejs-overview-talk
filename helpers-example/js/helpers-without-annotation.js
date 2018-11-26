@@ -13,7 +13,7 @@ const scene =
     window.scene =
     new THREE.Scene()
 
-scene.name = "hello-with-helpers"
+scene.name = "helper-demo"
 
 let geometry = new THREE.BoxGeometry(10, 10, 10)
 let material = new THREE.MeshNormalMaterial()
