@@ -16,18 +16,29 @@ scene.background = new THREE.Color(0xEE6352)
 let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 
 
-let ground = new THREE.Mesh(
-    new THREE.PlaneBufferGeometry(140, 140),
-    new THREE.MeshPhongMaterial({
-        specular: 0x101010,
+// let ground = new THREE.Mesh(
+//     new THREE.PlaneBufferGeometry(300, 300),
+//     new THREE.MeshPhongMaterial({
+//         specular: 0x101010,
+//     })
+// )
+// ground.color = 0xff00ff
+// ground.rotation.x = -Math.PI / 2
+// // ground.position.y = -10
+// ground.receiveShadow = true
+
+// scene.add(ground)
+
+let backgroundSphere = new THREE.Mesh(
+    new THREE.SphereBufferGeometry(500, 60, 40),
+    new THREE.MeshBasicMaterial({
+        map: new THREE.TextureLoader().load('assets/street.png')
+        // map: new THREE.TextureLoader().load('assets/oldhouse.jpg')
+        // map: new THREE.TextureLoader().load('assets/equirectangular-pano.png')
     })
 )
-ground.color = 0xff00ff
-ground.rotation.x = -Math.PI / 2
-// ground.position.y = -10
-ground.receiveShadow = true
-
-scene.add(ground)
+backgroundSphere.geometry.scale(-1, 1, 1)
+scene.add(backgroundSphere)
 
 let loader = new THREE.STLLoader()
 
