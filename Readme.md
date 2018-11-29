@@ -19,6 +19,6 @@ All this to say: theses are def meant to be demos to show off some of the basic 
 
 ## Better comments
 
-The annotated notes in the javascript files are colored using the [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) extension for vs code. This is what allows me to type `// ! bla bla bla` and turn the text folling it red.
+The annotated notes in the javascript files are colored using the [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) extensiona for vs code. This is what allows me to type `// ! bla bla bla` and turn the text folling it red.
 
 If you're a VSCode user I highly suggest installing the Better Comments library so you get that good comment coloring.

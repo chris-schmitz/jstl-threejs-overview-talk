@@ -85,6 +85,7 @@ let cameraOne = new THREE.PerspectiveCamera(
     50 // * setting the far boundry
 )
 cameraOne.position.z = 30 // * we want to move this camera back a bit relative to the origin so we can see our object
+cameraOne.name = "camera-one"
 
 // * rather than doing a bunch of rotational math to figure out where the box is relative to our camera we can use
 // * this _uuuuuulllltra_ helpful threejs helper method to point our camera to the given object. _very nice_
@@ -98,6 +99,7 @@ let cameraTwo = new THREE.PerspectiveCamera(90, aspectRatio * 0.5)
 // * moving the camera to be a bit further back
 cameraTwo.position.z = 50
 cameraTwo.position.y = 50
+cameraTwo.name = "camera-two"
 
 // * and looking at the scene
 cameraTwo.lookAt(scene.position)
@@ -166,7 +168,7 @@ scene.add(axesHelper)
 let frame = 0
 
 function animate() {
-    console.log(`frame number: ${frame}`)
+    // console.log(`frame number: ${frame}`)
     frame++
 
     requestAnimationFrame(animate)
